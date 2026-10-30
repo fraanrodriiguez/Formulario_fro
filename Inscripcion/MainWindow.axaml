@@ -4,6 +4,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="760" d:DesignHeight="760"
         x:Class="Inscripcion.MainWindow"
+        
         Title="Inscripcion al curso">
-        <TextBlock>HOLAA</TextBlock>
+        <Grid RowDefinitions="Auto,*,Auto" Background="LightGray">
+                <StackPanel Background="SkyBlue" Margin="20,20,20,0">
+                        <TextBlock Text="Inscripción al curso" FontSize="22" Foreground="white" FontWeight="Bold" />
+                        <TextBlock Text="IES El Majuelo - Formación complementaria" FontSize="18" Foreground="white"/>
+                </StackPanel>                 
+                <ScrollViewer Grid.Row="1">
+                        <StackPanel Background="LightGray" Margin="20,16" >
+                                <StackPanel Background="gray">
+                                        <TextBlock Text="Datos personales" FontSize="18" Foreground="black" FontWeight="Bold" />
+                                        <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*">
+                                                <TextBlock Text="Nombre"/>
+                                                <TextBox Grid.Column="1" PlaceholderText="Tu nombre" />
+                                                <TextBlock Grid.Row="1" Text="Apellidos"/>
+                                                <TextBox Grid.Row="1" Grid.Column="1" PlaceholderText="Tu apellido" />
+                                                <TextBlock Grid.Row="2" Text="Fecha de nacimiento"/>
+                                                <DatePicker Grid.Row="2" Grid.Column="1"></DatePicker>
+                                                <TextBlock Grid.Row="3" Text="Correo electrónico"/>
+                                                <TextBox Grid.Row="3" Grid.Column="1" PlaceholderText="nombre@correo.com" />
+                                        </Grid>
+                                </StackPanel>
+                                <StackPanel>
+                                        <TextBlock Text="Curso" FontSize="18" Foreground="black" FontWeight="Bold" />
+                                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*">
+                                                <TextBlock Text="Curso"/>
+                                                <ComboBox Grid.Column="1">
+                                                        <ComboBoxItem Content="Desarrollo de interfaces con Avalonia"/>
+                                                        <ComboBoxItem Content="Desarrollo web"/>
+                                                        <ComboBoxItem Content="Programación en C#"/>
+                                                        <ComboBoxItem Content="Bases de datos"/>
+                                                </ComboBox>
+                                                <TextBlock Grid.Row="1" Text="Modalidad"/>
+                                                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                                        <RadioButton Content="Presencial" GroupName="Modalidad"/>
+                                                        <RadioButton Content="Online" GroupName="Modalidad"/>
+                                                </StackPanel>
+                                        </Grid>
+                                </StackPanel>   
+                                <StackPanel>
+                                        <TextBlock Text="Preferencias" FontSize="18" Foreground="black" FontWeight="Bold" />
+                                        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,*">
+                                                <TextBlock Text="Intereses" Grid.RowSpan="2"/>
+                                                <UniformGrid Grid.Row="1" Grid.Column="1" Columns="3">
+                                                        <CheckBox Content="Programación" Grid.Column="1" />
+                                                        <CheckBox Content="Diseño" Grid.Column="2"/>
+                                                        <CheckBox Content="Redes" Grid.Row="1" Grid.Column="1"/>
+                                                        <CheckBox Content="Móvil" Grid.Row="1" Grid.Column="2"/>
+                                                        <CheckBox Content="Bases de datos" Grid.Row="2" Grid.Column="1"/>
+                                                        <CheckBox Content="Videojuegos" Grid.Row="2" Grid.Column="2"/>
+                                                </UniformGrid>
+                                        </Grid>
+                                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                                                <TextBlock Text="Nivel (1 a 5)"/>
+                                                <Slider Grid.Column="1" Minimum="1" Maximum="5" IsSnapToTickEnabled="True" Value="3" TickFrequency="1" />
+                                                <TextBlock Grid.Row="1" Grid.Column="1" Text="1 = principiante · 5 = avanzado"/>
+                                        </Grid>
+                                </StackPanel>
+                                <Grid ColumnDefinitions="Auto,*">
+                                        <TextBlock VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Text="Novedades" />
+                                        <ToggleSwitch OffContent="Quiero recibir novedades por correo" OnContent="Quiero recibir novedades por correo" />
+                                </Grid>
+                                <StackPanel>
+                                        <TextBlock Text="Observaciones" FontSize="18" Foreground="black" FontWeight="Bold" />
+                                        <TextBox PlaceholderText="Escribe aquí cualquier comentario..." AcceptsReturn="True" TextWrapping="Wrap" MaxLength="500"/>
+                                        <TextBlock Text="Máximo 500 caracteres." Foreground="Gray" />
+                                </StackPanel>
+                        </StackPanel>   
+                </ScrollViewer>
+        </Grid>
 </Window>
